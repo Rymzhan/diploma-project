@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#04528B</color>
+    <color name="colorPrimaryDark">#003B6A</color>
+    <color name="backgroundBlue">#003B6A</color>
+    <color name="colorAccent">#04528B</color>
+    <color name="blueButton">#04528B</color>
+    <color name="green">#009965</color>
+    <color name="boschDarkBlue">#005691</color>
+    <color name="red">#E20015</color>
+    <color name="editTextColor">#166DB3</color>
+    <color name="textColor">#003B6A</color>
+    <color name="backgroundGrey">#F8F9F9</color>
+    <color name="pageBackground">#E5E5E5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="textGrey">#BDBDBD</color>
+    <color name="textGreySolid">#4F4F4F</color>
+    <color name="backgroundGreySettings">#F4F3F3</color>
+    <color name="settingsStroke">#F8F8F8</color>
+    <color name="textBlue">#2F80ED</color>
+    <color name="solidGrey">#828282</color>
+</resources>

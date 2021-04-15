@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "780318576842",
+    "firebase_url": "https://bosch-66000.firebaseio.com",
+    "project_id": "bosch-66000",
+    "storage_bucket": "bosch-66000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780318576842:android:5c59facbe778382cb26433",
+        "android_client_info": {
+          "package_name": "com.thousand.bosch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780318576842-1f7il94d8arq8qdik9oaaa8s7ivf1o4b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-zOlQNor3wPwa1gdg-Tu0BZEAThH3Nb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780318576842-1f7il94d8arq8qdik9oaaa8s7ivf1o4b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

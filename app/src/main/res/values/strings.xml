@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">BOSCH</string>
+    <string name="login">Вход</string>
+    <string name="phone_number_hint">Номер телефона</string>
+    <string name="password_hint">Пароль</string>
+    <string name="forget_password_hint">Забыли пароль?</string>
+    <string name="login_hint">Войти</string>
+    <string name="create_account_hint">Создать аккаунт</string>
+
+    <string name="empty_data">Empty data</string>
+    <string name="empty_data_description">You have not data yet.\nPlease try again later.</string>
+    <string name="empty_error">Oops!</string>
+    <string name="empty_error_description">Something went wrong.\nPlease try again later.</string>
+    <string name="refresh">Refresh</string>
+
+
+    <string name="format_phone_number">+[0] ([000]) [000]-[00]-[00]</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="registration">Регистрация</string>
+    <string name="agreement_text">Я подтверждяю свое согласие с Условиями Использования и Политики Конфиденциальности</string>
+    <string name="first_step">Шаг 1 из 3</string>
+    <string name="second_step">Шаг 2 из 3</string>
+    <string name="confirmation">Подтверждение</string>
+    <string name="sms_confirmation_code">Введите 4х значный код, который мы вам отправили на номер: </string>
+    <string name="sms_replay">Вы не получили код? Отправка через</string>
+    <string name="continue_hint">Продолжить</string>
+    <string name="third_step">Шаг 3 из 3</string>
+    <string name="enter_name_reg_text">Введите Имя и Фамилию</string>
+    <string name="workspace">Место работы</string>
+    <string name="org_name">Название организации</string>
+    <string name="country">Страна</string>
+    <string name="city">Город</string>
+    <string name="login_name">Логин</string>
+    <string name="create_password">Придумайте пароль</string>
+    <string name="finish">Завершить</string>
+    <string name="password_restore">Восстановление пароля</string>
+    <string name="restore_hint">Чтобы мы могли отправить код для сброса пароля, введите номер телефона с которого авторизовались</string>
+    <string name="send">Отправить</string>
+    <string name="restore">Восстановление</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="notifications_admin_channel_description" translatable="false">Уведомления для 8 версий</string>
+    <string name="notifications_admin_channel_name" translatable="false">Bosch</string>
+    <string name="guest" translatable="false">Гость</string>
+</resources>
