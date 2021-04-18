@@ -75,7 +75,8 @@ dependencies {
     implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.0'
 
 
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v2.2.4'
 
     implementation 'me.jessyan:retrofit-url-manager:1.4.0'
 

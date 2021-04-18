@@ -17,6 +17,8 @@ import com.thousand.bosch.model.main.profile.turns.TurnsResponse
 import com.thousand.bosch.model.web_view.WebViewModel
 import com.google.gson.JsonObject
 import com.thousand.bosch.model.auth.login.LoginRequest
+import com.thousand.bosch.model.department.dep_list.*
+import com.thousand.bosch.model.department.response.DepartmentResponse
 import com.thousand.bosch.model.list.top.Top20ListResponse
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -252,4 +254,33 @@ interface ServerService {
     @POST(Endpoints.DELETE_ACCOUNT)
     fun deleteAccount(): Completable
 
+    @GET(Endpoints.DEPARTMENT_LIST)
+    fun departmentList(): Single<MutableList<Department>>
+
+    @GET(Endpoints.GROUP_LIST)
+    fun groupList(
+        @Query("department_id") department_id: Int
+    ): Single<MutableList<Group>>
+
+    @GET("course")
+    fun getCourses(
+        @Query("department_id") department_id: Int
+    ): Single<MutableList<Course>>
+
+    @GET("analyz_one")
+    fun getCalcByGroup(
+        @Query("group_id") group_id: Int,
+        @Query("course_id") course_id: Int
+    ): Single<MutableList<DepartmentResponse>>
+
+    @GET("cities")
+    fun citiesList(): Single<MutableList<City>>
+
+    @GET("students")
+    fun getStudentResult(
+        @Query("iin") iin: Long?,
+        @Query("city_id") city_id: Int?,
+        @Query("last_name") last_name: String?,
+        @Query("first_name") first_name: String?
+    ): Single<MutableList<StudentResponse>>
 }

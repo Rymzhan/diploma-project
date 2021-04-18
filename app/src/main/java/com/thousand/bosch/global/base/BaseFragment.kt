@@ -148,7 +148,7 @@ abstract class BaseFragment : MvpAppCompatFragment(), BaseMvpView {
         Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
 
     internal fun showMessage(message: String, view: View) =
-        Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
 
     internal fun showMessageWithAction(
         @StringRes message: Int,

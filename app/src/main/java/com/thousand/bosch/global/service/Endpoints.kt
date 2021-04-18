@@ -45,4 +45,6 @@ object Endpoints {
     const val USER_BY_ID = "users/{id}"
     const val WEB_VIEW = "http://185.125.91.22/api/v1/webviews"
     const val DELETE_ACCOUNT = "auth/delete"
+    const val DEPARTMENT_LIST = "department/get"
+    const val GROUP_LIST = "department_group/get"
 }

@@ -29,8 +29,6 @@ import timber.log.Timber
 
 class MainActivity : MvpAppCompatActivity(), MainActivityView {
 
-    private var webSocketClient: WebSocketClient? = null
-
     private val TAG = "MainActivity"
 
     @InjectPresenter
@@ -55,54 +53,6 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
             BlankFragment.newInstance(),
             BlankFragment.TAG)
 
-    }
-
-
-    override fun onNewIntent(intent: Intent?) {
-        super.onNewIntent(intent)
-        intent?.getStringExtra("game_id")?.let { it1 ->
-            val tempId = it1.toInt()
-            Log.d("Game Id Notification 2", it1)
-            if (tempId > 0) {
-                if (LocalStorage.getAccessToken() != "tokasen") {
-                    supportFragmentManager.clearAndReplaceFragment(
-                        R.id.Container,
-                        ResultsFriendFragment.newInstance(0, tempId),
-                        ResultsFriendFragment.TAG
-                    )
-                } else {
-                    supportFragmentManager.replaceFragment(
-                        R.id.Container,
-                        LoginFragment.newInstance(),
-                        LoginFragment.TAG
-                    )
-                }
-            } else {
-                setUp()
-            }
-        }
-        return
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "check")
-    }
-
-    private fun setUp() {
-        if (LocalStorage.getAccessToken() != "tokasen") {
-            supportFragmentManager.clearAndReplaceFragment(
-                R.id.Container,
-                ProfileFragment.newInstance(),
-                ProfileFragment.TAG
-            )
-        } else {
-            supportFragmentManager.replaceFragment(
-                R.id.Container,
-                LoginFragment.newInstance(),
-                LoginFragment.TAG
-            )
-        }
     }
 
     override fun showProgressBar(show: Boolean) = progressBar.visible(show)

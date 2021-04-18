@@ -26,7 +26,6 @@ import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
-import com.github.mikephil.charting.data.PieEntry
 import com.thousand.bosch.global.base.BaseFragment
 import com.thousand.bosch.global.extension.addFragmentWithBackStack
 import kotlinx.android.synthetic.main.fragment_profile_details.*
@@ -163,7 +162,7 @@ class ProfileDetailsFragment() : BaseFragment(), ProfileDetailsView {
     }
 
     override fun bindStats(stats: Stats, categoryStats: List<CategoryStat>) {
-        bindChart(stats)
+//        bindChart(stats)
         val categoriesRecycler = categoriesProfileRecycler as RecyclerView
         categoriesRecycler.layoutManager = LinearLayoutManager(context)
         categoriesRecycler.adapter =
@@ -172,7 +171,7 @@ class ProfileDetailsFragment() : BaseFragment(), ProfileDetailsView {
         presenter.myFriends()
     }
 
-    private fun bindChart(stats: Stats) {
+  /*  private fun bindChart(stats: Stats) {
         val pieChart = myPieChart as PieChart
         pieChart.setNoDataText("")
         if (stats.finished_games_count == 0) {
@@ -230,7 +229,7 @@ class ProfileDetailsFragment() : BaseFragment(), ProfileDetailsView {
 
         pieChart.animateY(1400, Easing.EaseInOutQuad)
 
-    }
+    }*/
 
     private fun commonBind(scores: Int, image: String?, name: String, login: String) {
         if (image != null) {

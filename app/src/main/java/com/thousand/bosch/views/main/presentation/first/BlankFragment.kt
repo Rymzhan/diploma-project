@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.thousand.bosch.R
+import com.thousand.bosch.global.extension.replaceFragmentWithBackStack
+import com.thousand.bosch.views.main.presentation.stats.department.pre.PreDepartmentFragment
+import com.thousand.bosch.views.main.presentation.stats.student.pre.PreStudentFragment
 import kotlinx.android.synthetic.main.fragment_blank.*
 
 class BlankFragment : Fragment() {
@@ -21,8 +24,20 @@ class BlankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        statsByAbiturent.setOnClickListener {  }
-        statsByDepartment.setOnClickListener {  }
+        statsByAbiturent.setOnClickListener {
+            requireActivity().supportFragmentManager.replaceFragmentWithBackStack(
+                R.id.Container,
+                PreStudentFragment.newInstance(),
+                PreStudentFragment.TAG
+            )
+        }
+        statsByDepartment.setOnClickListener {
+            requireActivity().supportFragmentManager.replaceFragmentWithBackStack(
+                R.id.Container,
+                PreDepartmentFragment.newInstance(),
+                PreDepartmentFragment.TAG
+            )
+        }
     }
 
     companion object {

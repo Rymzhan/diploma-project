@@ -1,10 +1,7 @@
 package com.thousand.bosch.global.di
 
 import com.thousand.bosch.BuildConfig
-import com.thousand.bosch.global.di.ServiceProperties.AUTH_HEADER
 import com.thousand.bosch.global.di.ServiceProperties.SERVER_URL
-import com.thousand.bosch.global.di.ServiceProperties.WEB_SOCKET_TOKEN
-import com.thousand.bosch.global.di.ServiceProperties.WEB_SOCKET_URL
 import com.thousand.bosch.global.service.ServerService
 import com.thousand.bosch.global.utils.LocalStorage
 import okhttp3.OkHttpClient
@@ -24,10 +21,7 @@ val networkModule = module {
 
 
 object ServiceProperties {
-    const val SERVER_URL = "http://185.125.91.22/api/v1/"
-    const val AUTH_HEADER = "Authorization"
-    const val WEB_SOCKET_URL = "ws://185.125.91.22:8080"
-    const val WEB_SOCKET_TOKEN = "?token="
+    const val SERVER_URL = "http://46.101.193.42/api/"
 }
 
 fun createOkHttpClient(): OkHttpClient {
@@ -41,11 +35,9 @@ fun createOkHttpClient(): OkHttpClient {
     okHttpClientBuilder.addInterceptor { chain ->
         var request = chain.request()
         val url = request.url().newBuilder()
-        val authToken = "Bearer " + LocalStorage.getAccessToken()
 
 
         request = request.newBuilder()
-            .addHeader(AUTH_HEADER, authToken)
             .url(url.build())
             .build()
         chain.proceed(request)
@@ -60,7 +52,6 @@ fun createOkHttpClient(): OkHttpClient {
 
     }
 
-    Timber.d("WebSocketUrl 1: ${WEB_SOCKET_URL + WEB_SOCKET_TOKEN + LocalStorage.getAccessToken()}")
 
     return okHttpClientBuilder.build()
 }

@@ -18,6 +18,8 @@ import com.thousand.bosch.model.main.profile.turns.TurnsResponse
 import com.thousand.bosch.model.web_view.WebViewModel
 import com.google.gson.JsonObject
 import com.thousand.bosch.model.auth.login.LoginRequest
+import com.thousand.bosch.model.department.dep_list.*
+import com.thousand.bosch.model.department.response.DepartmentResponse
 import com.thousand.bosch.model.list.top.Top20ListResponse
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -230,4 +232,30 @@ class UserRepoImpl(
 
     override fun deleteAccount(): Completable =
         serverService.deleteAccount()
+
+    override fun departmentLis(): Single<MutableList<Department>> =
+        serverService.departmentList()
+
+    override fun groupList(dep_id: Int): Single<MutableList<Group>> =
+        serverService.groupList(dep_id)
+
+    override fun getCourses(department_id: Int): Single<MutableList<Course>> =
+        serverService.getCourses(department_id)
+
+    override fun getCalcByGroup(
+        group_id: Int,
+        course_id: Int
+    ): Single<MutableList<DepartmentResponse>> =
+        serverService.getCalcByGroup(group_id, course_id)
+
+    override fun citiesList(): Single<MutableList<City>> =
+        serverService.citiesList()
+
+    override fun getStudentResult(
+        iin: Long?,
+        city_id: Int?,
+        last_name: String?,
+        first_name: String?
+    ): Single<MutableList<StudentResponse>> =
+         serverService.getStudentResult(iin, city_id, last_name, first_name)
 }

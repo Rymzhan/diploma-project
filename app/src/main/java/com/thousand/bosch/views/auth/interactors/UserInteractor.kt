@@ -21,6 +21,8 @@ import com.thousand.bosch.views.auth.repositories.UserRepo
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
+import com.thousand.bosch.model.department.dep_list.*
+import com.thousand.bosch.model.department.response.DepartmentResponse
 import com.thousand.bosch.model.list.top.Top20ListResponse
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -331,4 +333,43 @@ class UserInteractor(
         userRepository.deleteAccount()
             .subscribeOn(schedulersProvider.io())
             .observeOn(schedulersProvider.ui())
+
+    fun departmentList(): Single<MutableList<Department>> =
+        userRepository.departmentLis()
+            .subscribeOn(schedulersProvider.io())
+            .observeOn(schedulersProvider.ui())
+
+    fun groupList(dep_id: Int): Single<MutableList<Group>>  =
+        userRepository.groupList(dep_id)
+            .subscribeOn(schedulersProvider.io())
+            .observeOn(schedulersProvider.ui())
+
+    fun getCourses(department_id: Int): Single<MutableList<Course>> =
+        userRepository.getCourses(department_id)
+            .subscribeOn(schedulersProvider.io())
+            .observeOn(schedulersProvider.ui())
+
+    fun getCalcByGroup(
+        group_id: Int,
+        course_id: Int
+    ): Single<MutableList<DepartmentResponse>> =
+    userRepository.getCalcByGroup(group_id, course_id)
+    .subscribeOn(schedulersProvider.io())
+    .observeOn(schedulersProvider.ui())
+
+    fun citiesList(): Single<MutableList<City>> =
+        userRepository.citiesList()
+            .subscribeOn(schedulersProvider.io())
+            .observeOn(schedulersProvider.ui())
+
+    fun getStudentResult(
+        iin: Long?,
+        city_id: Int?,
+        last_name: String?,
+        first_name: String?
+    ): Single<MutableList<StudentResponse>> =
+        userRepository.getStudentResult(iin, city_id, last_name, first_name)
+            .subscribeOn(schedulersProvider.io())
+            .observeOn(schedulersProvider.ui())
+
 }

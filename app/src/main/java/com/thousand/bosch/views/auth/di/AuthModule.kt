@@ -27,6 +27,9 @@ import com.thousand.bosch.views.main.presentation.profile.friends.details.Friend
 import com.thousand.bosch.views.main.presentation.profile.friends.list.FriendsListPresenter
 import com.thousand.bosch.views.main.presentation.profile.main.ProfilePresenter
 import com.thousand.bosch.views.main.presentation.profile.settings.SettingsPresenter
+import com.thousand.bosch.views.main.presentation.stats.department.post.PostDepartmentPresenter
+import com.thousand.bosch.views.main.presentation.stats.department.pre.PreDepartmentPresenter
+import com.thousand.bosch.views.main.presentation.stats.student.pre.PreStudentPresenter
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
@@ -40,6 +43,9 @@ val authModule = module {
         scoped { LoginPresenter(get()) }
     }
 
+    scope(named(AuthScope.REGISTER_SCOPE)) {
+        scoped { RegistrationPresenter(get()) }
+    }
 
     scope(named(AuthScope.REGISTER_SCOPE)) {
         scoped { RegistrationPresenter(get()) }
@@ -153,6 +159,18 @@ val authModule = module {
         scoped { HelpPresenter(get()) }
     }
 
+    scope(named(AuthScope.PRE_DEP_SCOPE)) {
+        scoped { PreDepartmentPresenter(get()) }
+    }
+
+    scope(named(AuthScope.POST_DEP_SCOPE)) {
+        scoped { PostDepartmentPresenter(get()) }
+    }
+
+    scope(named(AuthScope.PRE_STUDENT_SCOPE)) {
+        scoped { PreStudentPresenter(get()) }
+    }
+
 }
 
 object AuthScope {
@@ -183,4 +201,7 @@ object AuthScope {
     const val GAME_FRIEND_SCOPE = "GameFriendScope"
     const val SUGGEST_QUESTION = "SuggestQuestion"
     const val HELP_SCOPE = "HelpScope"
+    const val PRE_DEP_SCOPE = "PreDepScope"
+    const val POST_DEP_SCOPE = "PostDepScope"
+    const val PRE_STUDENT_SCOPE = "PreStudentScope"
 }

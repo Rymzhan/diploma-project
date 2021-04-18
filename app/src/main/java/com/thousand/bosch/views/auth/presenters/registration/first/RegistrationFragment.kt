@@ -34,13 +34,16 @@ class RegistrationFragment() : BaseFragment(), RegistrationView {
             .get()
     }
 
+    override fun onDestroy() {
+        getKoin().getScopeOrNull(AuthScope.REGISTER_SCOPE)?.close()
+        super.onDestroy()
+    }
+
     var phone = ""
 
     companion object {
         val TAG = "RegistrationFragment"
-        fun newInstance(): RegistrationFragment {
-            return RegistrationFragment()
-        }
+        fun newInstance(): RegistrationFragment = RegistrationFragment()
     }
 
     private fun onClick() {
@@ -83,11 +86,6 @@ class RegistrationFragment() : BaseFragment(), RegistrationView {
                 }
             }
         }
-    }
-
-    override fun onDestroy() {
-        getKoin().getScopeOrNull(AuthScope.REGISTER_SCOPE)?.close()
-        super.onDestroy()
     }
 
     override fun goToSecond(responsePhone: String) {

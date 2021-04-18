@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BOSCH</string>
+    <string name="app_name">Diploma project</string>
     <string name="login">Вход</string>
     <string name="phone_number_hint">Номер телефона</string>
     <string name="password_hint">Пароль</string>
@@ -43,4 +43,5 @@
     <string name="notifications_admin_channel_description" translatable="false">Уведомления для 8 версий</string>
     <string name="notifications_admin_channel_name" translatable="false">Bosch</string>
     <string name="guest" translatable="false">Гость</string>
+    <string name="result">Результат</string>
 </resources>

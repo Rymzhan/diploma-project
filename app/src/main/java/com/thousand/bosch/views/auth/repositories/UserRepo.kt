@@ -16,6 +16,8 @@ import com.thousand.bosch.model.main.profile.statistics.StatisticsModel
 import com.thousand.bosch.model.main.profile.turns.TurnsResponse
 import com.thousand.bosch.model.web_view.WebViewModel
 import com.google.gson.JsonObject
+import com.thousand.bosch.model.department.dep_list.*
+import com.thousand.bosch.model.department.response.DepartmentResponse
 import com.thousand.bosch.model.list.top.Top20ListResponse
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -23,6 +25,7 @@ import io.reactivex.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
+import retrofit2.http.Query
 
 interface UserRepo {
     fun login(phone: String, password: String, deviceToken: String): Single<Response<MainResponse>>
@@ -54,7 +57,7 @@ interface UserRepo {
     fun getTopFriends(): Observable<TopListResponse>
 
     // WebSocket
-   // fun getMessageSocket(): Flowable<SocketMainResponse>
+    // fun getMessageSocket(): Flowable<SocketMainResponse>
 
     fun getTopByCountry(country_id: Int): Observable<TopListResponse>
 
@@ -102,13 +105,15 @@ interface UserRepo {
 
     fun randomGame(): Observable<Response<MainGameResponse>>
 
-    fun answerToRound(roundId: Int,
-                      firstQuestion: Int,
-                      firstAnswer: Int,
-                      secondQuestion: Int,
-                      secondAnswer: Int,
-                      thirdQuestion: Int,
-                      thirdAnswer: Int): Single<Response<JsonObject>>
+    fun answerToRound(
+        roundId: Int,
+        firstQuestion: Int,
+        firstAnswer: Int,
+        secondQuestion: Int,
+        secondAnswer: Int,
+        thirdQuestion: Int,
+        thirdAnswer: Int
+    ): Single<Response<JsonObject>>
 
     fun categoriesRandom(): Observable<Response<RandomCategories>>
 
@@ -147,4 +152,24 @@ interface UserRepo {
     ): Single<Response<MainResponse>>
 
     fun deleteAccount(): Completable
+
+    fun departmentLis(): Single<MutableList<Department>>
+
+    fun groupList(dep_id: Int): Single<MutableList<Group>>
+
+    fun getCourses(department_id: Int): Single<MutableList<Course>>
+
+    fun getCalcByGroup(
+        group_id: Int,
+        course_id: Int
+    ): Single<MutableList<DepartmentResponse>>
+
+    fun citiesList(): Single<MutableList<City>>
+
+    fun getStudentResult(
+        iin: Long?,
+         city_id: Int?,
+        last_name: String?,
+       first_name: String?
+    ): Single<MutableList<StudentResponse>>
 }

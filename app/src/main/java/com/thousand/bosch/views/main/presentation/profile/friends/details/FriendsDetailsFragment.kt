@@ -22,7 +22,7 @@ import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
-import com.github.mikephil.charting.data.PieEntry
+//import com.github.mikephil.charting.data.PieEntry
 import com.thousand.bosch.global.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_freinds_details.*
 import kotlinx.android.synthetic.main.fragment_freinds_details.averagePoints
@@ -200,7 +200,7 @@ class FriendsDetailsFragment() : BaseFragment(), FriendsDetailsView {
         activity?.onBackPressed()
     }
 
-    private fun bindChart(stats: Stats) {
+ /*   private fun bindChart(stats: Stats) {
         val pieChart = userPieChart as PieChart
         pieChart.setNoDataText("")
         if (stats.finished_games_count == 0) {
@@ -254,7 +254,7 @@ class FriendsDetailsFragment() : BaseFragment(), FriendsDetailsView {
 
         pieChart.animateY(1400, Easing.EaseInOutQuad)
 
-    }
+    }*/
 
     override fun bindUserInfo() {
         try {
@@ -282,7 +282,7 @@ class FriendsDetailsFragment() : BaseFragment(), FriendsDetailsView {
             categoriesRecycler.visibility = View.VISIBLE
             friendCatsEmptyText.visibility = View.GONE
         }
-        bindChart(stats)
+//        bindChart(stats)
 
         categoriesRecycler.layoutManager = LinearLayoutManager(context)
         categoriesRecycler.adapter =
