@@ -9,4 +9,5 @@ import com.thousand.bosch.model.department.response.DepartmentResponse
 interface PostDepartmentView : BaseMvpView {
 
     fun bindResult(departmentResponse: DepartmentResponse)
+    fun bindEmptyView()
 }

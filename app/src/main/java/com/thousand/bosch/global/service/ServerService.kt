@@ -264,13 +264,14 @@ interface ServerService {
 
     @GET("course")
     fun getCourses(
-        @Query("department_id") department_id: Int
+        @Query("group_id") department_id: Int
     ): Single<MutableList<Course>>
 
     @GET("analyz_one")
     fun getCalcByGroup(
-        @Query("group_id") group_id: Int,
-        @Query("course_id") course_id: Int
+        @Query("group_id") group_id: Int?,
+        @Query("course_id") course_id: Int?,
+        @Query("department_id") department_id: Int?
     ): Single<MutableList<DepartmentResponse>>
 
     @GET("cities")

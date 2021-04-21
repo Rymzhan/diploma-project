@@ -13,6 +13,9 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.thousand.bosch.R
 import com.thousand.bosch.global.base.BaseFragment
+import com.thousand.bosch.model.department.dep_list.Course
+import com.thousand.bosch.model.department.dep_list.Department
+import com.thousand.bosch.model.department.dep_list.Group
 import com.thousand.bosch.model.department.response.DepartmentResponse
 import com.thousand.bosch.views.auth.di.AuthScope
 import com.thousand.bosch.views.main.presentation.stats.department.pre.PreDepartmentPresenter
@@ -24,10 +27,15 @@ import org.koin.core.qualifier.named
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM3 = "param3"
 
 class PostDepartmentFragment : BaseFragment(), PostDepartmentView {
-    private var group_id: Int? = null
-    private var course_id: Int? = null
+    private var department: Department? = null
+    private var group: Group? = null
+    private var course: Course? = null
+    private var groupId:Int? = null
+    private var departmentId:Int? = null
+    private var courseId:Int? = null
 
     @InjectPresenter
     lateinit var presenter: PostDepartmentPresenter
@@ -46,20 +54,42 @@ class PostDepartmentFragment : BaseFragment(), PostDepartmentView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            group_id = it.getInt(ARG_PARAM1)
-            course_id = it.getInt(ARG_PARAM2)
+            department = it.getParcelable(ARG_PARAM1)
+            group = it.getParcelable(ARG_PARAM2)
+            course = it.getParcelable(ARG_PARAM3)
         }
     }
 
     override val layoutRes: Int = R.layout.fragment_post_department
 
     override fun setUp(savedInstanceState: Bundle?) {
-        group_id?.let { groupId ->
-            course_id?.let { courseId ->
-                presenter.getCalcByGroup(groupId, courseId)
+        department?.let {
+            departmentId = it.id
+            departmentValue.text = it.name
+            departmentKey.visibility = View.VISIBLE
+            departmentValue.visibility = View.VISIBLE
+        }
+        group?.let {
+            if(it.id==-1){
+                group = null
+            }else{
+                groupId = it.id
+                groupValue.text = it.name
+                groupKey.visibility = View.VISIBLE
+                groupValue.visibility = View.VISIBLE
             }
         }
-
+        course?.let {
+             if(it.id==-1){
+                 course = null
+            }else {
+                 courseId = it.id
+                 courseValue.text = it.name
+                 courseKey.visibility = View.VISIBLE
+                 courseValue.visibility = View.VISIBLE
+             }
+        }
+        presenter.getCalcByGroup(groupId,courseId,departmentId)
         backToMain.setSafeOnClickListener { requireActivity().onBackPressed() }
     }
 
@@ -70,31 +100,49 @@ class PostDepartmentFragment : BaseFragment(), PostDepartmentView {
         val labels = ArrayList<String>()
 
         departmentResponse.pk_one?.let {
+            val percentage = it.toInt()
+            pbText1.text = "$percentage%"
+            progressBar1.progress = percentage
             entries.add(BarEntry(it.toFloat(), 0))
             labels.add("РК-1")
         }
 
         departmentResponse.pk_two?.let {
+            val percentage = it.toInt()
+            pbText2.text = "$percentage%"
+            progressBar2.progress = percentage
             entries.add(BarEntry(it.toFloat(), 1))
             labels.add("РК-2")
         }
 
         departmentResponse.pk_cp?.let {
+            val percentage = it.toInt()
+            pbText3.text = "$percentage%"
+            progressBar3.progress = percentage
             entries.add(BarEntry(it.toFloat(), 2))
             labels.add("РК-СР")
         }
 
         departmentResponse.final?.let {
+            val percentage = it.toInt()
+            pbText4.text = "$percentage%"
+            progressBar4.progress = percentage
             entries.add(BarEntry(it.toFloat(), 3))
             labels.add("Final")
         }
 
         departmentResponse.total?.let {
+            val percentage = it.toInt()
+            pbText5.text = "$percentage%"
+            progressBar5.progress = percentage
             entries.add(BarEntry(it.toFloat(), 4))
             labels.add("Total")
         }
 
         departmentResponse.retake?.let {
+            val percentage = it.toInt()
+            pbText6.text = "$percentage%"
+            progressBar6.progress = percentage
             entries.add(BarEntry(it.toFloat(), 5))
             labels.add("Retake")
         }
@@ -112,17 +160,22 @@ class PostDepartmentFragment : BaseFragment(), PostDepartmentView {
         barChart.animateY(1000)
     }
 
+    override fun bindEmptyView() {
+        barChart.visibility = View.GONE
+        percentageLayout.visibility = View.GONE
+        showMessage("По данному запросу ничего не надо", requireView())
+    }
+
     companion object {
         const val TAG = "PostDepartmentFragment"
 
         @JvmStatic
-        fun newInstance(group_id: Int, course_id: Int) =
+        fun newInstance(tempDepartment: Department?, tempGroup: Group?, tempCourse: Course?) =
             PostDepartmentFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_PARAM1, group_id)
-                    if (course_id != -1) {
-                        putInt(ARG_PARAM2, course_id)
-                    }
+                    putParcelable(ARG_PARAM1, tempDepartment)
+                    putParcelable(ARG_PARAM2, tempGroup)
+                    putParcelable(ARG_PARAM3, tempCourse)
                 }
             }
     }

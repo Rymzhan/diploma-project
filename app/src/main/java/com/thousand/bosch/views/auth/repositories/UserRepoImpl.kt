@@ -243,10 +243,11 @@ class UserRepoImpl(
         serverService.getCourses(department_id)
 
     override fun getCalcByGroup(
-        group_id: Int,
-        course_id: Int
+        group_id: Int?,
+        course_id: Int?,
+        department_id: Int?
     ): Single<MutableList<DepartmentResponse>> =
-        serverService.getCalcByGroup(group_id, course_id)
+        serverService.getCalcByGroup(group_id, course_id, department_id)
 
     override fun citiesList(): Single<MutableList<City>> =
         serverService.citiesList()

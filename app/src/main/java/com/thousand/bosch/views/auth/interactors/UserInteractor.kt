@@ -350,10 +350,11 @@ class UserInteractor(
             .observeOn(schedulersProvider.ui())
 
     fun getCalcByGroup(
-        group_id: Int,
-        course_id: Int
+        group_id: Int?,
+        course_id: Int?,
+        department_id: Int?
     ): Single<MutableList<DepartmentResponse>> =
-    userRepository.getCalcByGroup(group_id, course_id)
+    userRepository.getCalcByGroup(group_id, course_id, department_id)
     .subscribeOn(schedulersProvider.io())
     .observeOn(schedulersProvider.ui())
 

@@ -160,8 +160,9 @@ interface UserRepo {
     fun getCourses(department_id: Int): Single<MutableList<Course>>
 
     fun getCalcByGroup(
-        group_id: Int,
-        course_id: Int
+        group_id: Int?,
+        course_id: Int?,
+        department_id: Int?
     ): Single<MutableList<DepartmentResponse>>
 
     fun citiesList(): Single<MutableList<City>>

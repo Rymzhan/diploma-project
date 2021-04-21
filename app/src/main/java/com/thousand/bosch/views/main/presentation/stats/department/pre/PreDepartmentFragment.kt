@@ -20,9 +20,9 @@ import org.koin.core.qualifier.named
 
 class PreDepartmentFragment : BaseFragment(), PreDepartmentView {
 
-    private lateinit var currentDepartment: Department
-    private lateinit var currentGroup: Group
-    private lateinit var currentCourse: Course
+    private var currentDepartment: Department? = null
+    private var currentGroup: Group? = null
+    private var currentCourse: Course? = null
     private var currentCourseId = -1
     override val layoutRes: Int = R.layout.fragment_pre_department
 
@@ -55,7 +55,7 @@ class PreDepartmentFragment : BaseFragment(), PreDepartmentView {
     private fun makeReplace(currentCourseId: Int) {
         requireActivity().supportFragmentManager.replaceFragmentWithBackStack(
             R.id.Container,
-            PostDepartmentFragment.newInstance(currentGroup.id, currentCourseId),
+            PostDepartmentFragment.newInstance(currentDepartment, currentGroup, currentCourse),
             PostDepartmentFragment.TAG
         )
     }
@@ -79,8 +79,9 @@ class PreDepartmentFragment : BaseFragment(), PreDepartmentView {
                     id: Long
                 ) {
                     currentDepartment = departmentList[position]
-                    if (currentDepartment.id != -1) {
-                        presenter.getGroupList(currentDepartment.id)
+                    if (currentDepartment?.id != -1 && currentDepartment!=null) {
+                        finishDepCalcBtn.visibility = View.VISIBLE
+                        presenter.getGroupList(currentDepartment?.id!!)
                     }
                 }
             }
@@ -106,8 +107,8 @@ class PreDepartmentFragment : BaseFragment(), PreDepartmentView {
                     id: Long
                 ) {
                     currentGroup = groupList[position]
-                    if (currentGroup.id != -1 && currentDepartment.id != -1) {
-                        presenter.getCoursesList(currentDepartment.id)
+                    if (currentGroup?.id != -1 && currentDepartment?.id != -1 && currentDepartment!=null && currentGroup!=null) {
+                        presenter.getCoursesList(currentGroup?.id!!)
                     }
                 }
             }
@@ -117,7 +118,7 @@ class PreDepartmentFragment : BaseFragment(), PreDepartmentView {
     override fun bindCourses(response: MutableList<Course>?) {
         response?.let { coursesList ->
             if(coursesList.isEmpty()){
-                finishDepCalcBtn.visibility = View.VISIBLE
+
             }else{
                 coursesList.add(0, Course(-1, "", "Выберите предмет"))
                 val adapter = ArrayAdapter(context!!, R.layout.spinner_item, coursesList)
@@ -135,15 +136,17 @@ class PreDepartmentFragment : BaseFragment(), PreDepartmentView {
                         id: Long
                     ) {
                         currentCourse = coursesList[position]
-                        when (currentCourse.id) {
+                        if(currentCourse!=null){
+                        when (currentCourse?.id) {
                             -1 -> {
                                 currentCourseId = -1
                                 finishDepCalcBtn.visibility = View.VISIBLE
                             }
                             else -> {
-                                currentCourseId = currentCourse.id
+                                currentCourseId = currentCourse?.id!!
                                 finishDepCalcBtn.visibility = View.VISIBLE
                             }
+                        }
                         }
                     }
                 }

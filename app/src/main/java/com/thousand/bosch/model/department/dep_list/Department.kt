@@ -3,30 +3,33 @@ package com.thousand.bosch.model.department.dep_list
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Department(
     val id: Int,
     val name: String
-){
+): Parcelable{
     override fun toString(): String {
         return name
     }
 }
 
+@Parcelize
 data class Group(
     val id: Int,
     val department_id: Int,
     val name: String
-){
+): Parcelable{
     override fun toString(): String {
         return name
     }
 }
 
+@Parcelize
 data class Course(
     val id: Int,
     val teacher: String,
     val name: String
-){
+): Parcelable{
     override fun toString(): String {
         return "$name $teacher"
     }
