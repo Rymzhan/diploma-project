@@ -2,7 +2,7 @@ package com.diploma.stats.views.main.presentation.stats.student.pre
 
 import com.arellomobile.mvp.InjectViewState
 import com.diploma.stats.global.presentation.BasePresenter
-import com.diploma.stats.views.auth.interactors.UserInteractor
+import com.diploma.stats.views.scope.interactors.UserInteractor
 
 @InjectViewState
 class PreStudentPresenter(private val userInteractor: UserInteractor) :
@@ -24,6 +24,7 @@ class PreStudentPresenter(private val userInteractor: UserInteractor) :
                 viewState.bindToNextPage(response[0])
             }
         }, { t ->
+            viewState.showEmptyResult()
             t.printStackTrace()
         }).connect()
     }

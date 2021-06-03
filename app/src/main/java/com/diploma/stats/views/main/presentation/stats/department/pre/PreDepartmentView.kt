@@ -11,7 +11,7 @@ import com.diploma.stats.model.department.dep_list.Group
 interface PreDepartmentView : BaseMvpView{
 
     fun bindDepartment(response: MutableList<Department>?)
-    fun bindGroup(response: MutableList<Group>?)
     fun bindCourses(response: MutableList<Course>?)
+    fun bindGroup(response: MutableList<Group>?)
 
 }

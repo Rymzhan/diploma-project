@@ -9,7 +9,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.diploma.stats.R
 import com.diploma.stats.global.extension.*
 import com.diploma.stats.global.extension.clearAndReplaceFragment
-import com.diploma.stats.views.auth.di.AuthScope
+import com.diploma.stats.views.scope.di.AuthScope
 import com.diploma.stats.views.main.presentation.first.BlankFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.getKoin

@@ -1,7 +1,7 @@
 package com.diploma.stats.global.di
 
-import com.diploma.stats.views.auth.di.authModule
-import com.diploma.stats.views.auth.di.interactorRepositoryModule
+import com.diploma.stats.views.scope.di.authModule
+import com.diploma.stats.views.scope.di.interactorRepositoryModule
 
 
 val appModule = listOf(

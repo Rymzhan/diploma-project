@@ -13,7 +13,7 @@ import com.diploma.stats.model.department.dep_list.Course
 import com.diploma.stats.model.department.dep_list.Department
 import com.diploma.stats.model.department.dep_list.Group
 import com.diploma.stats.model.department.response.DepartmentResponse
-import com.diploma.stats.views.auth.di.AuthScope
+import com.diploma.stats.views.scope.di.AuthScope
 import kotlinx.android.synthetic.main.fragment_post_department.*
 import kotlinx.android.synthetic.main.fragment_post_department.backToMain
 import org.koin.android.ext.android.getKoin

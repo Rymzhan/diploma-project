@@ -7,7 +7,7 @@
     android:id="@+id/login_page"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".views.auth.presenters.login.LoginFragment"
+    tools:context=".views.scope.presenters.login.LoginFragment"
     android:background="@color/white"
     android:backgroundTint="@color/white">
 

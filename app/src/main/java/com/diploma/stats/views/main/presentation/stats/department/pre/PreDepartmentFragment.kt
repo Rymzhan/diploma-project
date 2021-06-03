@@ -12,7 +12,7 @@ import com.diploma.stats.global.extension.replaceFragmentWithBackStack
 import com.diploma.stats.model.department.dep_list.Course
 import com.diploma.stats.model.department.dep_list.Department
 import com.diploma.stats.model.department.dep_list.Group
-import com.diploma.stats.views.auth.di.AuthScope
+import com.diploma.stats.views.scope.di.AuthScope
 import com.diploma.stats.views.main.presentation.stats.department.course.StatsByCoursesFragment
 import com.diploma.stats.views.main.presentation.stats.department.post.PostDepartmentFragment
 import kotlinx.android.synthetic.main.fragment_pre_department.*
@@ -22,8 +22,8 @@ import org.koin.core.qualifier.named
 class PreDepartmentFragment : BaseFragment(), PreDepartmentView {
 
     private var currentDepartment: Department? = null
-    private var currentGroup: Group? = null
     private var currentCourse: Course? = null
+    private var currentGroup: Group? = null
     private var currentCourseId = -1
     override val layoutRes: Int = R.layout.fragment_pre_department
 
@@ -97,6 +97,46 @@ class PreDepartmentFragment : BaseFragment(), PreDepartmentView {
             }
         }
     }
+    override fun bindCourses(response: MutableList<Course>?) {
+        response?.let { coursesList ->
+            if(coursesList.isEmpty()){
+
+            }else{
+                coursesList.add(0, Course(-1, "Выберите предмет"))
+                val adapter = ArrayAdapter(context!!, R.layout.spinner_item, coursesList)
+
+                courseSpinner.adapter = adapter
+
+                courseSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                    }
+
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        currentCourse = coursesList[position]
+                        if(currentCourse!=null){
+                            when (currentCourse?.id) {
+                                -1 -> {
+                                    currentCourseId = -1
+                                    finishDepCalcBtn.visibility = View.VISIBLE
+                                }
+                                else -> {
+                                    currentCourseId = currentCourse?.id!!
+                                    finishDepCalcBtn.visibility = View.VISIBLE
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
 
     override fun bindGroup(response: MutableList<Group>?) {
         response?.let { groupList ->
@@ -126,46 +166,6 @@ class PreDepartmentFragment : BaseFragment(), PreDepartmentView {
         }
     }
 
-    override fun bindCourses(response: MutableList<Course>?) {
-        response?.let { coursesList ->
-            if(coursesList.isEmpty()){
-
-            }else{
-                coursesList.add(0, Course(-1, "Выберите предмет"))
-                val adapter = ArrayAdapter(context!!, R.layout.spinner_item, coursesList)
-
-                courseSpinner.adapter = adapter
-
-                courseSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                    override fun onNothingSelected(parent: AdapterView<*>?) {
-                    }
-
-                    override fun onItemSelected(
-                        parent: AdapterView<*>?,
-                        view: View?,
-                        position: Int,
-                        id: Long
-                    ) {
-                        currentCourse = coursesList[position]
-                        if(currentCourse!=null){
-                        when (currentCourse?.id) {
-                            -1 -> {
-                                currentCourseId = -1
-                                finishDepCalcBtn.visibility = View.VISIBLE
-                            }
-                            else -> {
-                                currentCourseId = currentCourse?.id!!
-                                finishDepCalcBtn.visibility = View.VISIBLE
-                            }
-                        }
-                        }
-                    }
-                }
-            }
-
-
-        }
-    }
 
     companion object {
         const val TAG = "PreDepartmentFragment"

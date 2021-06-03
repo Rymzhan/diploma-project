@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".views.auth.presenters.registration.second.RegistrationFragmentSecond">
+    tools:context=".views.scope.presenters.registration.second.RegistrationFragmentSecond">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -13,7 +13,7 @@ import com.diploma.stats.global.base.BaseFragment
 import com.diploma.stats.global.extension.replaceFragmentWithBackStack
 import com.diploma.stats.model.department.dep_list.City
 import com.diploma.stats.model.department.dep_list.StudentResponse
-import com.diploma.stats.views.auth.di.AuthScope
+import com.diploma.stats.views.scope.di.AuthScope
 import com.diploma.stats.views.main.presentation.stats.student.city.StatsByCityFragment
 import com.diploma.stats.views.main.presentation.stats.student.post.PostStudentFragment
 import kotlinx.android.synthetic.main.fragment_pre_student.*

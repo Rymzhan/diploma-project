@@ -12,7 +12,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.diploma.stats.R
 import com.diploma.stats.global.base.BaseFragment
 import com.diploma.stats.model.department.dep_list.StudentCityResult
-import com.diploma.stats.views.auth.di.AuthScope
+import com.diploma.stats.views.scope.di.AuthScope
 import kotlinx.android.synthetic.main.fragment_stats_by_city.*
 import org.koin.android.ext.android.getKoin
 import org.koin.core.qualifier.named

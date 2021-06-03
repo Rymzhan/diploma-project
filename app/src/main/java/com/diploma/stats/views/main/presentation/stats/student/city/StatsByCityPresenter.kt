@@ -4,7 +4,7 @@ import com.arellomobile.mvp.InjectViewState
 import com.diploma.stats.global.presentation.BasePresenter
 import com.diploma.stats.global.presentation.Paginator
 import com.diploma.stats.model.department.dep_list.StudentCityResult
-import com.diploma.stats.views.auth.interactors.UserInteractor
+import com.diploma.stats.views.scope.interactors.UserInteractor
 
 @InjectViewState
 class StatsByCityPresenter(private val userInteractor: UserInteractor) : BasePresenter<StatsByCityView>(){
