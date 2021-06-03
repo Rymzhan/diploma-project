@@ -389,4 +389,8 @@ class UserInteractor(
             .subscribeOn(schedulersProvider.io())
             .observeOn(schedulersProvider.ui())
 
+    fun getCorellation(): Single<String> = userRepository.getCorellation()
+        .subscribeOn(schedulersProvider.io())
+        .observeOn(schedulersProvider.ui())
+
 }

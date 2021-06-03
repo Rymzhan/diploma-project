@@ -266,4 +266,6 @@ class UserRepoImpl(
         first_name: String?
     ): Single<MutableList<StudentResponse>> =
          serverService.getStudentResult(iin, city_id, last_name, first_name)
+
+    override fun getCorellation(): Single<String> = serverService.getCorellation()
 }

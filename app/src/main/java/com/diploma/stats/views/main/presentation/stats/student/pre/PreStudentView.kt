@@ -11,5 +11,7 @@ interface PreStudentView : BaseMvpView{
     fun bindCitiesList(cities: MutableList<City>?)
     fun showEmptyResult()
     fun bindToNextPage(studentResponse: StudentResponse)
+    fun showCorellation(response: Double?)
+    fun showError(message: String?)
 
 }

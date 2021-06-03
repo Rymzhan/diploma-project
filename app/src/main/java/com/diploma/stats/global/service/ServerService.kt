@@ -297,4 +297,7 @@ interface ServerService {
         @Query("last_name") last_name: String?,
         @Query("first_name") first_name: String?
     ): Single<MutableList<StudentResponse>>
+
+    @GET("statistic/correlation_of_ent_to_grades")
+    fun getCorellation(): Single<String>
 }

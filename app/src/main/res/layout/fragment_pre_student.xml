@@ -119,7 +119,7 @@
             app:layout_constraintTop_toBottomOf="@+id/iinLayout" />
 
         <View
-            android:id="@+id/view2"
+            android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/settingsStroke2"
@@ -127,6 +127,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/calcByIINBtn" />
+
+        <Button
+            android:id="@+id/corellationBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/button_gradient"
+            android:text="Посмотреть корреляцию всех студентов"
+            android:textAllCaps="false"
+            android:textColor="@drawable/button_text_color"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settingsStroke2"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/corellationBtn" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/nameLayout"
@@ -139,7 +167,7 @@
             android:layout_marginRight="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/calcByIINBtn">
+            app:layout_constraintTop_toBottomOf="@+id/corellationBtn">
 
             <TextView
                 android:id="@+id/nameHint"

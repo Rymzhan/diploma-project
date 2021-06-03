@@ -177,4 +177,6 @@ interface UserRepo {
         last_name: String?,
        first_name: String?
     ): Single<MutableList<StudentResponse>>
+
+    fun getCorellation(): Single<String>
 }

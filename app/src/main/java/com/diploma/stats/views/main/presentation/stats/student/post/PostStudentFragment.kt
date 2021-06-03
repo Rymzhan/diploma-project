@@ -89,6 +89,7 @@ class PostStudentFragment : Fragment() {
             pbTextStudent4.text = result.gr_ct.toDouble().toInt().toString()
             pbTextStudent5.text = result.prof_first_point.toDouble().toInt().toString()
             pbTextStudent6.text = result.prof_second_point.toDouble().toInt().toString()
+            pbTextStudent7.text = "${result.likelihood_acquittal_ent}%"
 
             progressBarStudent1.progress = (result.sum_of_points.toDouble().toInt() * 100)/140
             progressBarStudent2.progress = (result.kaz_history.toDouble().toInt() * 100)/20
@@ -96,6 +97,7 @@ class PostStudentFragment : Fragment() {
             progressBarStudent4.progress = (result.gr_ct.toDouble().toInt() * 100)/20
             progressBarStudent5.progress = (result.prof_first_point.toDouble().toInt() * 100)/40
             progressBarStudent6.progress = (result.prof_second_point.toDouble().toInt() * 100)/40
+            progressBarStudent7.progress =  result.likelihood_acquittal_ent.toDouble().toInt()
 
         }
     }

@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.diploma.stats.R
@@ -81,6 +82,10 @@ class PreStudentFragment : BaseFragment(), PreStudentView {
                 }
             }
         }
+
+        corellationBtn.setSafeOnClickListener {
+            presenter.getCorellation()
+        }
     }
 
     override fun bindCitiesList(cities: MutableList<City>?) {
@@ -119,6 +124,22 @@ class PreStudentFragment : BaseFragment(), PreStudentView {
             PostStudentFragment.newInstance(studentResponse),
             PostStudentFragment.TAG
         )
+    }
+
+    override fun showCorellation(response: Double?) {
+        response?.let {
+            closeKeyboard(requireActivity())
+            SweetAlertDialog(requireActivity(),SweetAlertDialog.SUCCESS_TYPE)
+                .setTitleText("Корелляция успеваемости всех студентов:")
+                .setContentText("$it%")
+                .show()
+        }
+    }
+
+    override fun showError(message: String?) {
+        message?.let {
+            Toast.makeText(requireContext(),it,Toast.LENGTH_LONG).show()
+        }
     }
 
     companion object {

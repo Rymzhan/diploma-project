@@ -36,6 +36,16 @@ class PreStudentPresenter(private val userInteractor: UserInteractor) :
                 viewState.bindToNextPage(response[0])
             }
         }, { t ->
+            viewState.showEmptyResult()
+            t.printStackTrace()
+        }).connect()
+    }
+
+    fun getCorellation() {
+        userInteractor.getCorellation().subscribe({response->
+            viewState.showCorellation(response.toDouble())
+        },{t->
+            viewState.showError(t.toString())
             t.printStackTrace()
         }).connect()
     }

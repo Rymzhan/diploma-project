@@ -56,7 +56,7 @@
                 android:gravity="center"
                 android:text="@string/result"
                 android:textColor="@color/textColor"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -68,7 +68,7 @@
                 android:layout_marginTop="20dp"
                 android:text="ФИО"
                 android:textColor="@color/textColor"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:layout_marginStart="22dp"
                 android:layout_marginLeft="22dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -84,9 +84,8 @@
                 android:layout_marginEnd="22dp"
                 android:layout_marginRight="22dp"
                 android:textColor="@color/textColor"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:gravity="end"
-                android:lines="2"
                 android:maxLines="3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -97,14 +96,14 @@
                 android:id="@+id/iinKey"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="ИИН"
-                android:textColor="@color/textColor"
-                android:textSize="22sp"
                 android:layout_marginStart="22dp"
                 android:layout_marginLeft="22dp"
+                android:text="ИИН"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iinValue"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nameKey" />
+                app:layout_constraintTop_toTopOf="@+id/iinValue" />
 
             <TextView
                 android:id="@+id/iinValue"
@@ -112,29 +111,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
                 android:layout_marginLeft="22dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="22dp"
                 android:layout_marginRight="22dp"
-                android:textColor="@color/textColor"
-                android:textSize="22sp"
                 android:gravity="end"
-                android:lines="2"
                 android:maxLines="3"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/iinKey"
-                app:layout_constraintTop_toBottomOf="@+id/nameKey" />
+                app:layout_constraintTop_toBottomOf="@+id/nameValue" />
 
             <TextView
                 android:id="@+id/ieltsKey"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="IELTS"
-                android:textColor="@color/textColor"
-                android:textSize="22sp"
+                android:layout_height="0dp"
                 android:layout_marginStart="22dp"
                 android:layout_marginLeft="22dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:text="IELTS"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/ieltsValue"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iinKey" />
 
@@ -144,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/textColor"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:layout_marginEnd="22dp"
                 android:layout_marginRight="22dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -153,13 +155,17 @@
             <TextView
                 android:id="@+id/languageKey"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Язык обучения"
-                android:textColor="@color/textColor"
-                android:textSize="22sp"
+                android:layout_height="0dp"
                 android:layout_marginStart="22dp"
                 android:layout_marginLeft="22dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Язык обучения"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/languageValue"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ieltsKey" />
 
@@ -169,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/textColor"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:layout_marginEnd="22dp"
                 android:layout_marginRight="22dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -191,29 +197,38 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/barChartStudent">
+
                 <TextView
                     android:id="@+id/rk1Key"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="22dp"
                     android:layout_marginLeft="22dp"
+                    android:layout_marginEnd="22dp"
+                    android:layout_marginRight="22dp"
                     android:text="Общ. количество баллов"
                     android:textColor="@color/textColor"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@+id/progressBarStudent1"
+                    app:layout_constraintEnd_toStartOf="@+id/progressBarStudent1"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/progressBarStudent1" />
 
                 <TextView
                     android:id="@+id/rk2Key"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="22dp"
                     android:layout_marginLeft="22dp"
+                    android:layout_marginEnd="22dp"
+                    android:layout_marginRight="22dp"
                     android:text="История Казахстана"
                     android:textColor="@color/textColor"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@+id/progressBarStudent2"
+                    app:layout_constraintEnd_toStartOf="@+id/progressBarStudent2"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/progressBarStudent2" />
 
@@ -225,21 +240,24 @@
                     android:layout_marginLeft="22dp"
                     android:text="Математика"
                     android:textColor="@color/textColor"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@+id/progressBarStudent3"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/progressBarStudent3" />
 
                 <TextView
                     android:id="@+id/finalKey"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="22dp"
                     android:layout_marginLeft="22dp"
+                    android:layout_marginEnd="22dp"
+                    android:layout_marginRight="22dp"
                     android:text="Грамотность чтения"
                     android:textColor="@color/textColor"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@+id/progressBarStudent4"
+                    app:layout_constraintEnd_toStartOf="@+id/progressBarStudent4"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/progressBarStudent4" />
 
@@ -251,7 +269,7 @@
                     android:layout_marginLeft="22dp"
                     android:text="Проф. предмет 1"
                     android:textColor="@color/textColor"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@+id/progressBarStudent5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/progressBarStudent5" />
@@ -264,10 +282,28 @@
                     android:layout_marginLeft="22dp"
                     android:text="Проф. предмет 2"
                     android:textColor="@color/textColor"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@+id/progressBarStudent6"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/progressBarStudent6" />
+
+                <TextView
+                    android:id="@+id/likelihood_acquittal_ent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginLeft="22dp"
+                    android:maxLines="2"
+                    android:text="Вероятность оправдания баллов ЕНТ"
+                    android:textColor="@color/textColor"
+                    android:textSize="20sp"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginEnd="22dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/progressBarStudent7"
+                    app:layout_constraintEnd_toStartOf="@+id/progressBarStudent7"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/progressBarStudent7" />
 
                 <TextView
                     android:id="@+id/pbTextStudent1"
@@ -334,6 +370,18 @@
                     app:layout_constraintEnd_toEndOf="@+id/progressBarStudent6"
                     app:layout_constraintStart_toStartOf="@+id/progressBarStudent6"
                     app:layout_constraintTop_toTopOf="@+id/progressBarStudent6" />
+
+                <TextView
+                    android:id="@+id/pbTextStudent7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="13sp"
+                    android:padding="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/progressBarStudent7"
+                    app:layout_constraintEnd_toEndOf="@+id/progressBarStudent7"
+                    app:layout_constraintStart_toStartOf="@+id/progressBarStudent7"
+                    app:layout_constraintTop_toTopOf="@+id/progressBarStudent7" />
 
                 <ProgressBar
                     android:id="@+id/progressBarStudent1"
@@ -417,6 +465,20 @@
                     android:layout_marginRight="20dp"
                     android:progressDrawable="@drawable/stats_win_small"
                     app:layout_constraintTop_toBottomOf="@+id/progressBarStudent5"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBarStudent7"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:progressDrawable="@drawable/stats_win_small"
+                    app:layout_constraintTop_toBottomOf="@+id/progressBarStudent6"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginBottom="36dp"
                     app:layout_constraintBottom_toBottomOf="parent"/>

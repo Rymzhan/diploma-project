@@ -58,7 +58,8 @@ data class StudentResponse(
     val name: String,
     val surname: String,
     val iin: String,
-    val sum_of_points: String
+    val sum_of_points: String,
+    val likelihood_acquittal_ent: String
 ): Parcelable
 
 @Parcelize
